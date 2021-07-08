@@ -29,7 +29,7 @@ model Post{
 }
 model Comment{
     id Int @default(autoincrement()) @id
-    posts Post @relation(fields: [postId], references[id])
+    posts Post @relation(fields: [postId], references: [id])
     postId Int @unique
     users User @relation(fields: [userId], references: [id])
     userId Int @unique
