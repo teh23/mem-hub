@@ -12,7 +12,7 @@ const Menu = ({ setHidden, hidden, menuItems }: {
         <>
             <Overlay hidden={hidden} setHidden={setHidden} />
 
-            <nav className={`absolute inset-y-0 right-0 h-screen w-8/12 bg-opacity-90 backdrop-filter backdrop-blur-sm bg-gray-800 ${hidden ? 'hidden' : ''} `} >
+            <nav className={`absolute inset-y-0 right-0 h-screen w-8/12 bg-opacity-90 backdrop-filter backdrop-blur-sm bg-black ${hidden ? 'hidden' : ''} `} >
                 <div className="w-full h-1/12 pb-4 pt-4 flex justify-center flex-col items-center space-y-6 text-gray-400 pattern rounded-lg">
 
                     <div className="w-20 h-20 rounded-full bg-gray-50">
@@ -24,7 +24,7 @@ const Menu = ({ setHidden, hidden, menuItems }: {
                     {menuItems.map((key, index) => {
                         return (
 
-                            <li className="mb-2 pt-3 pb-3 pl-4 rounded-lg font-light hover:bg-gray-700 flex cursor-pointer" key={index}>
+                            <li className="mb-2 pt-3 pb-3 pl-4 rounded-lg font-light hover:bg-gray-400 hover:bg-opacity-20 flex cursor-pointer active:none" key={index}>
 
                                 {key}
                             </li>
