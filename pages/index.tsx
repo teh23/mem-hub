@@ -22,6 +22,9 @@ export default function Home({ users }: InferGetStaticPropsType<typeof getStatic
 
             </Head>
             <Header />
+            <main className="bg-gray-700">
+
+            </main>
         </Layout>
     )
 }
