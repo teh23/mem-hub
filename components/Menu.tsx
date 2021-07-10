@@ -24,7 +24,7 @@ const Menu = ({ setHidden, hidden, menuItems }: {
                     {menuItems.map((key, index) => {
                         return (
 
-                            <li className="mb-2  pt-3 pb-3 pl-4  rounded-lg font-light hover:bg-gray-700 flex" key={index}>
+                            <li className="mb-2 pt-3 pb-3 pl-4 rounded-lg font-light hover:bg-gray-700 flex cursor-pointer" key={index}>
 
                                 {key}
                             </li>
