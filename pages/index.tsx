@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { PrismaClient } from '@prisma/client'
-import { isError } from 'util'
+import Layout from '../components/Layout'
+import Header from '../components/Header'
+import { InferGetStaticPropsType } from "next";
 
 interface IUser {
     id: Number
@@ -10,16 +11,18 @@ interface IUser {
     createAt: Date
 }
 
-export default function Home({ users }: { users: IUser }) {
+export default function Home({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
     console.log(users)
 
     return (
-        <>
+        <Layout>
             <Head>
                 <title>a</title>
-            </Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-        </>
+            </Head>
+            <Header />
+        </Layout>
     )
 }
 
