@@ -1,4 +1,5 @@
 import React from 'react'
+import ButtonBorder from './ButtonBorder'
 import Overlay from './Overlay'
 
 const Menu = ({ setHidden, hidden, menuItems }: {
@@ -33,6 +34,7 @@ const Menu = ({ setHidden, hidden, menuItems }: {
                         )
                     })}
                 </ul>
+                <ButtonBorder text="log in" className={`absolute  mx-auto my-5 inset-x-0 bottom-0`} />
             </nav>
 
         </>
