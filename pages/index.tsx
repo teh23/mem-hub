@@ -15,17 +15,17 @@ export default function Home({ users }: InferGetStaticPropsType<typeof getStatic
     console.log(users)
 
     return (
-        <Layout>
+        <>
             <Head>
                 <title>a</title>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
 
             </Head>
-            <Header />
+
             <main className="bg-gray-700">
 
             </main>
-        </Layout>
+        </>
     )
 }
 

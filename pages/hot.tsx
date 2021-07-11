@@ -2,15 +2,12 @@ import React from 'react'
 import Header from '../components/Header'
 import Layout from '../components/Layout'
 
-const hot = () => {
+const hot = (props) => {
     return (
-        <Layout>
-            <Header />
-            <div>
-                Hello
-            </div>
 
-        </Layout>
+        <div>
+            Hello
+        </div>
     )
 }
 

@@ -1,11 +1,14 @@
 import React from 'react'
-
+import Link from 'next/link'
 const Logo = () => {
     return (
         <div className="logo font-extrabold  text-xl">
 
             <h1>
-                MEMHUB
+                <Link href="/">
+                    <a>MEMHUB</a>
+                </Link>
+
             </h1>
 
         </div>
