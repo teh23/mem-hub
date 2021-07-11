@@ -10,7 +10,7 @@ const Tabs = () => {
             {tabName.map((item, index) => {
                 return (
                     <Link key={item} href={`/${item.toLowerCase()}`} passHref>
-                        <div className={`h-full w-full flex justify-center items-center text-sm  box-content ${currentRoute === item.toLowerCase() ? `text-white border-b-2` : 'text-gray-400 '}  `}>
+                        <div className={`h-full w-full flex justify-center items-center text-sm  cursor-pointer box-content ${currentRoute === item.toLowerCase() ? `text-white border-b-2` : 'text-gray-400 '}  `}>
                             <a >{item}</a>
                         </div>
                     </Link>

@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../components/Header'
-import Layout from '../components/Layout'
 import { signIn, useSession } from "next-auth/client";
 
 const Hot = (props) => {
