@@ -1,25 +1,38 @@
 import React from 'react'
 import { signIn, useSession } from "next-auth/client";
 import Main from '../components/Main';
+import { PrismaClient } from '@prisma/client';
+import Post from '../components/Post';
+import { InferGetStaticPropsType } from "next";
 
-const Hot = (props) => {
-    const [session, loading] = useSession();
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+const Hot = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+
     return (
         <Main>
-            {session ? (
-                <div><p>Super secret page! HOT</p></div>
-
-            ) : (
-                <div>
-                    <p>You are not permitted to see this page.</p>
-
-                </div>
-            )}
+            {posts.map((item, ix) => {
+                return (
+                    <Post key={ix} item={item} />
+                )
+            })}
         </Main>
     );
 }
+export async function getStaticProps() {
+    const prisma = new PrismaClient()
+    const post = await prisma.post.findMany({
+        include: {
+            comments: true
+        }
+    })
+    console.log(post)
+    return {
+        props: {
+            posts: post
+        }
+
+    }
+
+}
+
 
 export default Hot
