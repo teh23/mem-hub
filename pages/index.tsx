@@ -3,7 +3,8 @@ import { PrismaClient } from '@prisma/client'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import { InferGetStaticPropsType } from "next";
-
+import Main from '../components/Main';
+import Hot from './hot'
 interface IUser {
     id: Number
     username: String
@@ -12,19 +13,9 @@ interface IUser {
 }
 
 export default function Home({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
-    console.log(users)
-
     return (
         <>
-            <Head>
-                <title>a</title>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-            </Head>
-
-            <main className="bg-gray-700">
-
-            </main>
+            <Hot />
         </>
     )
 }
