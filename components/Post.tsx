@@ -19,14 +19,15 @@ interface IComments {
 
 const Post = ({ item }: { item: IItem }) => {
     const { id, title, image, createAt, authorId, comments } = item
-    console.log(comments)
+    const date = new Date(createAt)
+
     return (
         <div key={id} className="space-y-5 md:max-w-4xl">
             <div>
-                <h1 className=" text-2xl font-medium">{title}</h1>
+                <h1 className=" break-all text-2xl font-medium">{title}</h1>
                 <div className="flex justify-between">
                     <small className="text-gray-300">#tags #tags #tags</small>
-                    <small className="text-gray-400">{createAt.getUTCDay()} day ago</small>
+                    <small className="text-gray-400">{date.getUTCDay()} day ago</small>
                 </div>
             </div>
             <div className="w-full bg-black bg-opacity-90 object-center flex justify-center"><img alt={title} src={image} className=" " /></div>
