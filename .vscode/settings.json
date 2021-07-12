@@ -1,5 +1,12 @@
 {
     "WillLuke.nextjs.addTypesOnSave": true,
     "WillLuke.nextjs.hasPrompted": true,
-    "cSpell.words": ["Helvetica", "MEMHUB", "Roboto", "preconnect"]
+    "cSpell.words": [
+        "Csrf",
+        "Helvetica",
+        "MEMHUB",
+        "NEXTAUTH",
+        "Roboto",
+        "preconnect"
+    ]
 }

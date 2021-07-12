@@ -14,6 +14,7 @@ model User{
   username String @unique
   password String
   createAt DateTime @default(now())
+  isActive  String  @default("1") 
   posts Post[]
   comments Comment[]
 
