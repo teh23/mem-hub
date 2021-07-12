@@ -4,7 +4,7 @@ const Logo = () => {
     return (
         <div className="font-extrabold  text-xl">
             <h1>
-                <Link href="/">
+                <Link href="/hot">
                     <a>MEMHUB</a>
                 </Link>
 
