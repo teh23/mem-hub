@@ -3,7 +3,7 @@ import { InferGetServerSidePropsType, NextApiRequest, NextApiResponse } from "ne
 import Overlay from "../components/Overlay";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import ButtonBorder from "../components/ButtonBorder";
+import Button from "../components/Button";
 import { getSession } from 'next-auth/client'
 
 
@@ -41,7 +41,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                     Password
                     <input className="text-black" name='password' type='password' />
                 </label>
-                <ButtonBorder type="submit">Sign in</ButtonBorder>
+                <Button type="submit">Sign in</Button>
             </form>
         </div>
     );
