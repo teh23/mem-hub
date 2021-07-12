@@ -2,12 +2,14 @@ import React from 'react'
 import ButtonBorder from './ButtonBorder'
 import Overlay from './Overlay'
 import { signIn, signOut, useSession } from "next-auth/client";
+import { useRouter } from 'next/router'
 const Menu = ({ setHidden, hidden, menuItems }: {
     setHidden: React.Dispatch<React.SetStateAction<boolean>>,
     hidden: boolean,
     menuItems: String[]
 }) => {
     const [session, loading] = useSession();
+    const router = useRouter()
     if (loading) {
         return <p>Loading...</p>
     }
@@ -37,8 +39,8 @@ const Menu = ({ setHidden, hidden, menuItems }: {
                     })}
                 </ul>
                 {session ?
-                    <ButtonBorder text="log out" onClick={signOut} className={`absolute  mx-auto my-5 inset-x-0 bottom-0`} /> :
-                    <ButtonBorder text="log in" onClick={signIn} className={`absolute  mx-auto my-5 inset-x-0 bottom-0`} />
+                    <ButtonBorder onClick={() => signOut()} className={`absolute  mx-auto my-5 inset-x-0 bottom-0`} >log out</ButtonBorder> :
+                    <ButtonBorder onClick={() => signIn()} className={`absolute  mx-auto my-5 inset-x-0 bottom-0`}>log in</ButtonBorder>
 
                 }
 
