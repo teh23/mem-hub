@@ -1,5 +1,6 @@
 import React from 'react'
 import { signIn, useSession } from "next-auth/client";
+import Main from '../components/Main';
 
 const Hot = (props) => {
     const [session, loading] = useSession();
@@ -7,16 +8,17 @@ const Hot = (props) => {
         return <p>Loading...</p>;
     }
     return (
-        <>
+        <Main>
             {session ? (
-                <p>Super secret page!</p>
+                <div><p>Super secret page! HOT</p></div>
+
             ) : (
-                <p>
+                <div>
                     <p>You are not permitted to see this page.</p>
 
-                </p>
+                </div>
             )}
-        </>
+        </Main>
     );
 }
 
