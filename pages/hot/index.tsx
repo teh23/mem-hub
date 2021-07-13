@@ -1,38 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { signIn, useSession } from "next-auth/client";
 import Main from '../../components/Main';
 import { PrismaClient } from '@prisma/client';
 import Post from '../../components/Post';
 import { InferGetStaticPropsType, InferGetServerSidePropsType } from "next";
 import { GetStaticProps, GetServerSideProps } from 'next'
-import axios from 'axios'
-const Hot = ({ posts }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    if (posts === undefined) {
-        return (
-            <div>wait</div>
-        )
+
+// TODO: ifinity pagination by scroll 
+
+const Hot = ({ url }: InferGetStaticPropsType<typeof getStaticProps>) => {
+    const [cnt, setCnt] = useState(1)
+
+    const pages = []
+    for (let i = 0; i < cnt; i++) {
+        pages.push(<Post url={url} page={i} key={i} />)
     }
+
+
     return (
         <Main>
-            {posts.map((item, ix) => {
-                return (
-                    <Post key={ix} item={item} />
-                )
-            })}
+            {pages}
+            <button onClick={() => setCnt(cnt + 1)}>Load More</button>
         </Main>
     );
 }
-export const getServerSideProps: GetServerSideProps = async (contex) => {
+
+export const getStaticProps: GetStaticProps = async (context) => {
     const url = process.env.URL
-    const page = 1
-
-    console.log(contex.params)
-
-    const res = await fetch(`${url}/api/posts?page=${page}`)
-    const posts = await res.json()
 
 
-    return { props: { posts } }
+    return { props: { url } }
+
 
 
 }
