@@ -20,7 +20,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
         const callbackUrl = router.query.callbackUrl as string
         if (hidden) {
             if (!router.query?.callBackUrl) {
-                router.push('/')
+                router.push('/hot')
                 return
             }
             router.push(callbackUrl)
