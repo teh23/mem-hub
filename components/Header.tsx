@@ -1,18 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Logo from './Header/Logo'
-import Image from 'next/image'
-import Hamburger from './Header/Hamburger'
-import Menu from './Menu'
-import Tabs from './Tabs'
-import { useEffect, useMemo } from 'react'
-import useWindowDimensions from './Hooks/useWindowDimensions'
 import Nav from './Nav'
 
 
 const Header = ({ children }: { children: React.ReactElement }) => {
-    const [hidden, setHidden] = useState(true)
-    const list = ['About me', 'Next', 'Test', 'Dodaj', 'Cos nowego']
-
 
     return (
         <>

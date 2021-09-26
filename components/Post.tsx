@@ -4,9 +4,9 @@ import useSWR from 'swr'
 
 const fetcher = (url: string) => fetch(url).then(r => r.json())
 
-const Post = ({ url, page }) => {
-    console.log(url)
-    const { data, error } = useSWR(`${url}/api/posts?page=${page}`, fetcher)
+const Post = ({ page }) => {
+
+    const { data, error } = useSWR(`/api/posts?page=${page}`, fetcher)
     if (!data) return <div>loading...</div>
 
 

@@ -8,12 +8,12 @@ import { GetStaticProps, GetServerSideProps } from 'next'
 
 // TODO: ifinity pagination by scroll 
 
-const Hot = ({ url }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Hot = () => {
     const [cnt, setCnt] = useState(1)
 
     const pages = []
     for (let i = 0; i < cnt; i++) {
-        pages.push(<Post url={url} page={i} key={i} />)
+        pages.push(<Post page={i} key={i} />)
     }
 
 
@@ -25,15 +25,6 @@ const Hot = ({ url }: InferGetStaticPropsType<typeof getStaticProps>) => {
     );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const url = process.env.URL
-
-
-    return { props: { url } }
-
-
-
-}
 
 
 export default Hot

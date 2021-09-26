@@ -10,7 +10,7 @@ const cors = initMiddleware(
         methods: ["GET", "POST", "OPTIONS"],
     })
 );
-
+const prisma = new PrismaClient();
 type Data = {
     name: string;
 };
@@ -20,8 +20,8 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     await cors(req, res);
-    const prisma = new PrismaClient();
 
+    await prisma.$connect();
     if (req.query?.page) {
         const page = +req.query?.page;
 
@@ -29,7 +29,7 @@ export default async function handler(
             skip: 5 * page,
             take: 5,
             include: {
-                comments: false,
+                comments: true,
             },
         });
         res.status(200).json(post);
@@ -47,4 +47,5 @@ export default async function handler(
             AllPosts: countPost,
         });
     }
+    prisma.$disconnect;
 }

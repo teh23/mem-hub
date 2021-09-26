@@ -2,15 +2,16 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:../database/database.db"
+  provider = "mongodb"
+  url      = env("DATABASE")
 }
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["mongodb"]
 }
 model User{
-  id  Int @default(autoincrement()) @id
+  id  String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   username String @unique
   password String
   createAt DateTime @default(now())
@@ -20,20 +21,22 @@ model User{
 
 }
 model Post{
-    id Int @default(autoincrement()) @id
+    id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
     title String
     image String
     createAt DateTime @default(now())
     author User @relation(fields: [authorId], references: [id])
-    authorId Int
+    authorId String @db.ObjectId
     comments Comment[]
 }
+
 model Comment{
-    id Int @default(autoincrement()) @id
+    id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
     posts Post @relation(fields: [postId], references:[id])
-    postId Int @unique
+    postId String @db.ObjectId
     users User @relation(fields: [userId], references: [id])
-    userId Int @unique
+    userId String @db.ObjectId
+
     comment String
 
 }
