@@ -11,13 +11,10 @@ const cors = initMiddleware(
     })
 );
 const prisma = new PrismaClient();
-type Data = {
-    name: string;
-};
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Data>
+    res: NextApiResponse
 ) {
     await cors(req, res);
 
