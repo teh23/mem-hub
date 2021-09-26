@@ -25,6 +25,7 @@
         "tailwindcss-filters": "^3.0.0"
     },
     "devDependencies": {
+        "@types/cors": "^2.8.12",
         "@types/node": "^16.0.1",
         "@types/react": "17.0.14",
         "autoprefixer": "^10.2.6",
