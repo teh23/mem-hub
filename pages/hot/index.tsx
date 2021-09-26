@@ -7,24 +7,25 @@ import Post from '../../components/Post';
 import { InferGetStaticPropsType, InferGetServerSidePropsType } from "next";
 import { GetStaticProps, GetServerSideProps } from 'next'
 
-// TODO: ifinity pagination by scroll 
+// TODO: infinity pagination by scroll 
 
 const Hot = () => {
     const [cnt, setCnt] = useState(1)
 
-    const pages = []
+    const pages: JSX.Element[] = []
 
     for (let i = 0; i < cnt; i++) {
-        pages.push(<Post key={i} page={i} />)
+        pages.push()
 
     }
-    console.log(pages)
+
 
 
 
     return (
         <Main>
-            {pages}
+            {/* {pages} */}
+            <Post key={1} page={1} />
             <button onClick={() => setCnt(cnt + 1)}>Load More</button>
         </Main>
     );

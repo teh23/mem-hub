@@ -2,7 +2,7 @@ import React from 'react'
 import { signIn, useSession } from "next-auth/client";
 import Main from '../components/Main';
 
-const Latest = (props) => {
+const Latest = ({ }) => {
     const [session, loading] = useSession();
     if (loading) {
         return <p>Loading...</p>;
