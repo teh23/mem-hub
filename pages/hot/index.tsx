@@ -9,7 +9,7 @@ import { GetStaticProps, GetServerSideProps } from 'next'
 
 // TODO: infinity pagination by scroll 
 
-const Hot = (props) => {
+const Hot = ({ }) => {
     const [cnt, setCnt] = useState(1)
 
     const pages: JSX.Element[] = []
