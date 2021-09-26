@@ -9,7 +9,7 @@ import { GetStaticProps, GetServerSideProps } from 'next'
 
 // TODO: infinity pagination by scroll 
 
-const Hot = () => {
+const Hot = (props) => {
     const [cnt, setCnt] = useState(1)
 
     const pages: JSX.Element[] = []
@@ -25,7 +25,7 @@ const Hot = () => {
     return (
         <Main>
             {/* {pages} */}
-            <Post key={1} page={1} />
+            <Post key={0} page={0} />
             <button onClick={() => setCnt(cnt + 1)}>Load More</button>
         </Main>
     );
