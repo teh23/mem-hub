@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* tslint:disable */
+import React, { ReactElement, useEffect, useState } from 'react'
 import { signIn, useSession } from "next-auth/client";
 import Main from '../../components/Main';
 import { PrismaClient } from '@prisma/client';
@@ -12,9 +13,13 @@ const Hot = () => {
     const [cnt, setCnt] = useState(1)
 
     const pages = []
+
     for (let i = 0; i < cnt; i++) {
-        pages.push(<Post page={i} key={i} />)
+        pages.push(<Post key={i} page={i} />)
+
     }
+    console.log(pages)
+
 
 
     return (

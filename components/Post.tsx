@@ -4,16 +4,19 @@ import useSWR from 'swr'
 
 const fetcher = (url: string) => fetch(url).then(r => r.json())
 
-const Post = ({ page }) => {
+const Post = ({ page }: { page: number }) => {
 
     const { data, error } = useSWR(`/api/posts?page=${page}`, fetcher)
     if (!data) return <div>loading...</div>
-
-
-
-
     return (
-        data.map(({ id, title, image, createAt, authorId, comments }) => {
+        data.map(({ id, title, image, createAt, authorId, comments }: {
+            id: string,
+            title: string,
+            image: string,
+            createAt: string,
+            authorId: string,
+            comments: string
+        }) => {
             const date = new Date(createAt)
             return (
                 <div key={id} className="space-y-5 md:max-w-4xl" >
